@@ -1,19 +1,29 @@
 const { createApp } = Vue
 
+
 createApp({
     data() {
+
         return {
-            message: 'Hello Vue!'
+            mail_list: [
+
+            ]
         }
     },
 
     methods: {
+
         generateEmail() {
             axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-                .then(function (response) {
+                .then((response) => {
+                    this.mail_list.push(response.data.response);
+
                     // handle success
-                    console.log(response);
+                    console.log(response.data.response);
+                    console.log(this.mail_list);
                 })
         }
     }
-}).mount('#app')
+}
+).mount('#app')
+
