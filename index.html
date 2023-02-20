@@ -30,8 +30,8 @@
     <div id="app">
         <input type="button" value="Generate Email" @click="generateEmail()">
 
-        <ul>
-            <li>{{mail_list}}</li>
+        <ul v-if="mail_list.length === 10">
+            <li v-for="mail in mail_list">{{mail}}</li>
         </ul>
     </div>
 
